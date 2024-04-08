@@ -1,7 +1,8 @@
 import { useState } from "react";
 import getDogs from "./getDogs";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Profile from "./Profile";
+import Nav from "./Nav";
 // import { v4 as uuid } from "uuid";
 
 /**
@@ -20,10 +21,6 @@ function Dogs() {
     // setLetMap(true);
   }
 
-  function handleClick(evt) {
-    const { key } = evt.target
-    return <Navigate to={`/dogs/${key}`} />
-  }
 
   if (firstTime) {
     // setLetMap(false);
@@ -38,15 +35,12 @@ function Dogs() {
           <p>Loading...</p>
         </div>
       ) : (
-        dogs.map((dog) => (<div>
-          <form onClick={handleClick}>
-          <Profile
-          key={dog.name}
-          dog={dog}
-          />
-         <button>{dog.name}</button>
-         </form>
-         </div>))
+        dogs.map((dog) => (
+          <div>
+            <Profile key={dog.name} dog={dog} />
+            <Nav name={dog.name} />
+          </div>
+        ))
       )}
     </div>
   );
