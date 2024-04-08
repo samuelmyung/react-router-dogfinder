@@ -1,9 +1,12 @@
-import './App.css';
+import { BrowserRouter, Routes } from "react-router-dom";
+import RoutesList from "./RoutesList";
 
 function App() {
   return (
     <div className="App">
-      <h1>Good luck!</h1>
+      <BrowserRouter>
+        <RoutesList />
+      </BrowserRouter>
     </div>
   );
 }
