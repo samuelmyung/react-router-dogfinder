@@ -19,12 +19,6 @@ function App() {
   }
 
 
-  // {firstTime ? (
-  //   <div>
-  //     <p>Loading...</p>
-  //   </div>
-  // ) :
-
   return (
 
     <div className="App">

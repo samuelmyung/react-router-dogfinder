@@ -2,7 +2,7 @@ import React from "react";
 // import dogs from "./Dogs";
 import { useParams } from "react-router-dom";
 
-function Profile({ dogs, key }) {
+function Profile({ dogs}) {
   const { name } = useParams();
 
   if (dogs.length === 0){
@@ -20,7 +20,9 @@ function Profile({ dogs, key }) {
       <p>
         <img src={`./public/${foundDog.src}.jpg`} alt="dog" />
       </p>
-      <p>Facts: {foundDog.facts}</p>
+      <ul>
+        {foundDog.facts.map((fact, i) => <li key={i}>{fact}</li>)}
+      </ul>
     </div>
   );
 }

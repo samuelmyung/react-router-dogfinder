@@ -11,7 +11,7 @@ function RoutesList({dogs}) {
       <Routes>
         <Route path="/dogs" element={<Dogs dogs={dogs}/>} />
         <Route path="/dogs/:name" element={<Profile dogs={dogs}/>} />
-        <Route path="*" element={<Navigate to="/dogs" />} />
+        <Route path="*" element={<Navigate to="/dogs"/>} />
       </Routes>
     </div>
   );

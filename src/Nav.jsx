@@ -1,8 +1,8 @@
-import { Link, Navigate, NavLink } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 
 
 /** Nav button for dogs. */
+
 function Nav({ name }) {
   return (
     <div>
