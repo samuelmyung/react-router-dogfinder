@@ -11,37 +11,21 @@ import Nav from "./Nav";
  * App -> Dogs -> Doglist
  *
  */
-function Dogs() {
-  const [firstTime, setFirstTime] = useState(true);
-  const [dogs, setDogs] = useState([]);
-  // const [letMap, setLetMap] = useState(false);
-
-  async function getAllDogs() {
-    setDogs(await getDogs());
-    // setLetMap(true);
-  }
+function Dogs({ dogs }) {
 
 
-  if (firstTime) {
-    // setLetMap(false);
-    getAllDogs();
-    setFirstTime(false);
-  }
 
   return (
     <div>
-      {firstTime ? (
+      {dogs.map((dog) => (
         <div>
-          <p>Loading...</p>
-        </div>
-      ) : (
-        dogs.map((dog) => (
-          <div>
-            <Profile key={dog.name} dog={dog} />
-            <Nav name={dog.name} />
-          </div>
-        ))
-      )}
+          <h1>{dog.name}</h1>
+          <p>Age: {dog.age}</p>
+          <p><img src={`./public/${dog.src}.jpg`} alt="dogs" /></p>
+          <p>Facts: {dog.facts}</p>
+          <Nav name={dog.name} />
+         </div>
+      ))}
     </div>
   );
 }

@@ -2,22 +2,25 @@ import React from "react";
 // import dogs from "./Dogs";
 import { useParams } from "react-router-dom";
 
-function Profile({ dog, key }) {
+function Profile({ dogs, key }) {
   const { name } = useParams();
-  console.log(dog);
-  console.log(name, "name!!!");
-  //   const dog = dogs[name];
 
-    if (!dog) return <p>No such dog: {name}</p>;
+  if (dogs.length === 0){
+    return <div><p>Loading...</p></div>
+  }
+
+  const foundDog = dogs.filter(dog => dog.name === name)[0];
+
+  if (!foundDog) return <p>No such dog: {name}</p>;
 
   return (
     <div>
-      <h1>{dog.name}</h1>
-      <p>Age: {dog.age}</p>
+      <h1>{foundDog.name}</h1>
+      <p>Age: {foundDog.age}</p>
       <p>
-        <img src={`./public/${dog.src}.jpg`} alt="dogs" />
+        <img src={`./public/${foundDog.src}.jpg`} alt="dog" />
       </p>
-      <p>Facts: {dog.facts}</p>
+      <p>Facts: {foundDog.facts}</p>
     </div>
   );
 }
